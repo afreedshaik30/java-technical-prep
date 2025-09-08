@@ -1,6 +1,7 @@
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class NthHighestSalary {
     public static void main(String[] args) {
@@ -16,7 +17,7 @@ public class NthHighestSalary {
         map1.put("naslen", 1500);
         map1.put("tom", 1700);
 
-        System.out.println(map1);
+        // System.out.println(map1);
         Map.Entry<String, Integer> result = getNthHighestSalary(2, map1);
         System.out.println(result);
     }
@@ -24,9 +25,13 @@ public class NthHighestSalary {
     public static Map.Entry<String, Integer> getNthHighestSalary(int num, Map<String, Integer> map) {
         return map.entrySet().stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .toList()
-                .get(num - 1);
+                .collect(Collectors.toList())
+                .get(num - 1); // zero-based index
     }
 }
 
 // [1000,1100,1200,1300,1400,1500,1600,1700]
+
+// Map.Entry<>
+// map.entrySet().stream()
+// sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
