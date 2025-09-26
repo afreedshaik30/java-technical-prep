@@ -3,6 +3,7 @@ import java.util.Random;
 public class P12_Random_Num {
     public static void main(String[] args) {
         m1();
+        m2();
     }
 
     // 1. Random
@@ -14,8 +15,7 @@ public class P12_Random_Num {
         int zeroToNine = rand.nextInt(10); // 0 to 9
         int oneToFifty = rand.nextInt(50) + 1; // 1 to 50
 
-        // --- Doubles --- generates a random double between 0.0 (inclusive) and 1.0
-        // (exclusive).
+        // --- Doubles --- generates a random double between 0.0 (inclusive) and 1.0 (exclusive).
         double zeroToOne = rand.nextDouble(); // 0.0 <= x < 1.0
         double zeroToTen = rand.nextDouble() * 10; // 0.0 <= x < 10.0
         double fiveToTwenty = 5 + rand.nextDouble() * 15; // 5.0 <= x < 20.0
@@ -30,8 +30,7 @@ public class P12_Random_Num {
         System.out.println("Random double (5.0–20.0): " + fiveToTwenty);
     }
 
-    // 2. Math.random() -- returns a double between 0.0 (inclusive) and 1.0
-    // (exclusive).
+    // 2. Math.random() -- returns a double between 0.0 (inclusive) and 1.0 (exclusive).
     public static void m2() {
         double randDouble = Math.random(); // 0.0–1.0
         int randInt0to9 = (int) (Math.random() * 10); // 0–9
