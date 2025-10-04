@@ -79,6 +79,27 @@ public class P2_SLL_Insertion {
         System.out.println("NULL"); // end of list
     }
 
+    public void countNodes() {
+        int count = 0;
+        Node current = HEAD;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        System.out.println("Count of Nodes : " + count);
+    }
+
+    public boolean search(int key) {
+        Node current = HEAD;
+        while (current != null) {
+            if (current.data == key) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
         P2_SLL_Insertion list = new P2_SLL_Insertion();
@@ -97,6 +118,16 @@ public class P2_SLL_Insertion {
         // Indexing: 0 -> 5, 1 -> 10, 2 -> (new node 15)
         list.insertByIndex(2, 15); // List: 5 -> 10 -> 15 -> 20 -> 30 -> NULL
         list.display(); // Output: 5 -> 10 -> 15 -> 20 -> 30 -> NULL
+
+        int key = 15;
+        if (list.search(key)) {
+            System.out.print(key + " is Found");
+        } else {
+            System.out.print(key + " is NOT Found");
+        }
+
+        System.out.println();
+        list.countNodes();
     }
 }
 
@@ -105,5 +136,6 @@ public class P2_SLL_Insertion {
  * 
  * Insertion at Start -> O(1) -> Just change HEAD pointer
  * Insertion at End -> O(n) -> Need to traverse to Last Node
- * Insertion at Middle/Index -> O(n) -> Need to reach the given index before inserting
+ * Insertion at Middle/Index -> O(n) -> Need to reach the given index before
+ * inserting
  */
